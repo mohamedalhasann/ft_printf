@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malhassa <malhassa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/31 15:13:21 by malhassa          #+#    #+#             */
-/*   Updated: 2025/09/01 23:56:42 by malhassa         ###   ########.fr       */
+/*   Created: 2025/09/01 23:33:56 by malhassa          #+#    #+#             */
+/*   Updated: 2025/09/02 00:29:13 by malhassa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-#include "../libft/libft.h"
-#include <stdarg.h>
+#include "ft_printf.h"
 
-int	ft_putchar(char c);
-int	ft_putnbr(int n);
-int	ft_putstr(char *s);
-int ft_puthexa(unsigned int num, char format);
-int ft_putptr(void *ptr , char format);
-int	ft_putuns(unsigned int n);
+int ft_putptr(void *ptr , char format)
+{
+    unsigned int *address;
 
-#endif
+    address = (unsigned int *)(ptr);
+    printf("%u\n",*address);
+    return (ft_puthexa(*address,format));
+}
+
+// int main(void)
+// {
+//     void    *ptr;
+
+//     ft_putptr(ptr,'X');
+// }
